@@ -1,9 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from services.classifier_service import classify_email
 from services.classifier_service import response_to_email
 
 bp = Blueprint('classify', __name__)
 
+@bp.route('/', methods=['GET'])
+def home():
+    return render_template("index.html")
 
 @bp.route('/classify', methods=['POST'])
 def classify():
