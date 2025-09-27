@@ -13,7 +13,7 @@ def classify_email(data: dict) -> dict:
 
     email_to_classify = data.get('email', '')
 
-    prompt = get_response_prompt().format(email_to_classify=email_to_classify)
+    prompt = get_classify_prompt().format(email_to_classify=email_to_classify)
 
     response = model.generate_content(prompt)
     return {'message': response.text}
@@ -25,7 +25,7 @@ def response_to_email(data: dict) -> dict:
     classify = data.get('classify', '')
     email_to_response = data.get('email', '')
 
-    prompt = get_response_prompt().format(email_to_response=email_to_response, classify=classify)
+    prompt = get_response_prompt().format(email_to_response=email_to_response, email_classification=classify)
 
     response = model.generate_content(prompt)
     return {'message': response.text}
