@@ -1,5 +1,5 @@
 from flask import Flask
-from .controllers.classify_controller import bp as classify_bp
+from controllers.classify_controller import bp as classify_bp
 
 def create_app():
     app = Flask(__name__)
