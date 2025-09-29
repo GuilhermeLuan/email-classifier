@@ -3,6 +3,8 @@ import sys
 from flask import Flask, request
 import mimetypes
 
+from flask_cors import CORS
+
 # Add JavaScript module MIME type
 mimetypes.add_type('application/javascript', '.js')
 
@@ -12,6 +14,7 @@ from controllers.classify_controller import bp as classify_bp
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
 
     # Configure static file handling for JavaScript modules
     @app.after_request
