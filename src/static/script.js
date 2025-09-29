@@ -1,4 +1,4 @@
-import {classifyEmail} from "./services/emailService.js";
+import {classifyEmail, generateReply} from "./services/emailService.js";
 
 const textArea = document.getElementById('emailText');
 const classifyButton = document.getElementById('classifyBtn');
@@ -19,7 +19,19 @@ classifyButton.addEventListener('click', async () => {
 
         console.log("Received classification:", classifyResponse.data);
 
-        displayResult(classifyResponse.data.message);
+        const response = classifyResponse.data.message;
+        displayResult(response);
+
+        const data = {
+            email: emailContent,
+            classify: response
+        }
+
+        const suggestedReply = await generateReply(data);
+        console.log("Received suggested reply:", suggestedReply.data);
+
+        displaySuggestedReply(suggestedReply);
+
     } catch (error) {
         console.error("Error during classification:", error);
     }
@@ -64,4 +76,9 @@ function displayResult(isProductive) {
     textElement.innerHTML = "Não produtivo";
     circleElement.classList.remove("bg-success");
     circleElement.classList.add("bg-danger");
+}
+
+function displaySuggestedReply(suggestedReply) {
+    const replyTextArea = document.getElementById("suggestedReply");
+    replyTextArea.value = suggestedReply.data.message;
 }
