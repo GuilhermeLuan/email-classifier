@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="https://static.vecteezy.com/system/resources/thumbnails/018/886/508/small_2x/email-line-icon-png.png"
@@ -39,7 +40,7 @@
 
                 <div class="mb-3">
                     <label for="emailText" class="form-label fw-bold">Cole o texto do e-mail</label>
-                    <textarea class="form-control" id="emailText" rows="8"
+                    <textarea class="form-control bg-light" id="emailText" rows="8"
                               placeholder="Cole o conteúdo do seu e-mail aqui..."></textarea>
 
                     <div class="d-grid mt-4">
@@ -48,17 +49,41 @@
                         </button>
                     </div>
                 </div>
+            </div>
 
-
-                <div class="col-md-6">
-                    <h5 class="fw-bold">Resultado</h5>
+            <div class="col-md-6">
+                <h6 class="fw-bold">Resultado</h6>
+                <div class="d-flex justify-content-between align-items-center border rounded-3 p-2 mb-3 bg-light">
+                    <span>Categoria</span>
+                    <span class="badge bg-success-subtle text-success-emphasis rounded-pill d-flex align-items-center">
+                        <span class="p-1 bg-success rounded-circle me-1"></span> Produtivo/Não Produtivo
+                    </span>
                 </div>
 
+                <div class="mb-3">
+                    <h6 class="fw-bold">Sugestão de Resposta</h6>
+                    <div class="position-relative"> <textarea readonly class="form-control bg-light" id="suggestedReply"
+                                                              rows="8"
+                                                              placeholder="Sugestão de resposta aparecerá aqui..."
+                                                              style="padding-right: 40px;">Thank you for the update. This looks great and I approve moving forward with the proposed plan. I appreciate your hard work on this.</textarea>
 
+                        <button type="button" class="btn btn-light position-absolute top-0 end-0 m-2" id="copyButton"
+                                title="Copiar texto">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
+
+<footer class="fixed-bottom text-center">
+  <div class="text-center p-3 bg-white" >
+    © 2025 Copyright
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
