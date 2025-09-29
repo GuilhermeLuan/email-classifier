@@ -226,3 +226,4 @@ __marimo__/
 /.venv/Scripts/pythonw.exe
 /.venv/pyvenv.cfg
 .vercel
+/node_modules/
