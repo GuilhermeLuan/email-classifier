@@ -18,6 +18,8 @@ classifyButton.addEventListener('click', async () => {
         const classifyResponse = await classifyEmail(payload);
 
         console.log("Received classification:", classifyResponse.data);
+
+        displayResult(classifyResponse.data.message);
     } catch (error) {
         console.error("Error during classification:", error);
     }
@@ -43,3 +45,23 @@ function showBootstrapAlert(message, type = "danger") {
   }, 3000);
 }
 
+function toggleLoadingState(isLoading) {
+
+}
+
+function displayResult(isProductive) {
+    const circleElement = document.getElementById("status-circle");
+    const textElement = document.getElementById("status-email");
+
+    if(isProductive === "Productive") {
+        textElement.innerHTML = "Produtivo";
+        circleElement.classList.remove("bg-danger");
+        circleElement.classList.add("bg-success");
+
+        return;
+    }
+
+    textElement.innerHTML = "Não produtivo";
+    circleElement.classList.remove("bg-success");
+    circleElement.classList.add("bg-danger");
+}
