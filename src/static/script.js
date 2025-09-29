@@ -7,7 +7,7 @@ classifyButton.addEventListener('click', async () => {
     const emailContent = textArea.value.trim();
 
     try {
-        const payload = {content: emailContent};
+        const payload = {email: emailContent};
 
         const classifyResponse = await classifyEmail(payload);
 
