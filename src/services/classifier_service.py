@@ -28,6 +28,10 @@ def response_to_email(data: dict) -> dict:
     prompt = get_response_prompt().format(email_to_response=email_to_response, email_classification=classify)
 
     response = model.generate_content(prompt)
+
+    if response.text == "No response needed.":
+        return {'message': "Nenhuma resposta necessária."}
+
     return {'message': response.text}
 
 def get_classify_prompt() -> str:
