@@ -133,11 +133,22 @@ O sistema utiliza o **Google Gemini 2.5 Flash Lite** como modelo de IA principal
 
 ## 📝 Como Usar
 
-1. Acesse a aplicação no navegador (http://localhost:5000)
-2. Cole o texto do e-mail na área de texto
-3. Clique em "Analisar E-mail"
-4. Veja a classificação (Produtivo/Improdutivo)
-5. Se aplicável, visualize a sugestão de resposta automática
+Existem duas maneiras de utilizar o sistema:
 
-**Nota**: Certifique-se de ter uma chave válida da API do Google Gemini configurada no arquivo `.env` antes de executar a aplicação.
+### 1. Ambiente Local (com sua API)
 
+Para desenvolvimento e testes locais, você utilizará sua própria chave da API do Google Gemini.
+
+1.  **Execute o projeto localmente** (conforme as instruções em "Como Executar Localmente").
+2.  Acesse a aplicação em: **[http://localhost:5000](http://localhost:5000)**.
+3.  Cole o texto do e-mail na área de texto.
+4.  Clique em "Analisar E-mail".
+5.  O sistema usará a `GEMINI_API_TOKEN` que você configurou no arquivo `.env`.
+
+### 2. Ambiente na Nuvem (versão pública)
+
+Se preferir, você pode usar a versão online, que já está configurada e pronta para uso.
+
+1.  Acesse a aplicação em: **[https://email.guilhermeluan.dev](https://email.guilhermeluan.dev)**.
+2.  Cole o e-mail e clique em "Analisar E-mail".
+3.  Não é necessário configurar chaves de API, pois a versão em nuvem utiliza uma API pré-configurada.
