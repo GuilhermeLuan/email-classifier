@@ -96,7 +96,7 @@ python app.py
 python wsgi.py
 ```
 
-A aplicação estará disponível em: `http://localhost:5000`
+A aplicação estará disponível em (acesse apenas no localhost, 127.0.0.1 vai apresentar erro de CORS): `http://localhost:5000`
 
 ## 🔑 Modelo de IA
 
