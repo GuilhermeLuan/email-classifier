@@ -63,7 +63,7 @@ Para começar a trabalhar com o projeto, primeiro clone o repositório para sua 
 git clone https://github.com/GuilhermeLuan/email-classifier.git
 
 # Navegue para o diretório do projeto
-cd email-classification-system
+cd email-classifier
 ```
 
 **Opcional**: Criar e ativar um ambiente virtual (recomendado):
