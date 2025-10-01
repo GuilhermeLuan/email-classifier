@@ -54,6 +54,31 @@ python3 --version
 
 Se não tiver o Python instalado, baixe em: [python.org](https://www.python.org/downloads/)
 
+## 📥 Clonando o Repositório
+
+Para começar a trabalhar com o projeto, primeiro clone o repositório para sua máquina local:
+
+```bash
+# Clone o repositório
+git clone https://github.com/GuilhermeLuan/email-classifier.git
+
+# Navegue para o diretório do projeto
+cd email-classification-system
+```
+
+**Opcional**: Criar e ativar um ambiente virtual (recomendado):
+
+```bash
+# Criar ambiente virtual
+python -m venv venv
+
+# Ativar o ambiente virtual
+# No Windows:
+venv\Scripts\activate
+# No macOS/Linux:
+source venv/bin/activate
+```
+
 ## ⚙️ Configuração do Ambiente
 
 ### 1. Configurar Variáveis de Ambiente
@@ -115,3 +140,4 @@ O sistema utiliza o **Google Gemini 2.5 Flash Lite** como modelo de IA principal
 5. Se aplicável, visualize a sugestão de resposta automática
 
 **Nota**: Certifique-se de ter uma chave válida da API do Google Gemini configurada no arquivo `.env` antes de executar a aplicação.
+
