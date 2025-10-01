@@ -24,7 +24,7 @@ class TestEmailClassifier(unittest.TestCase):
 
     @patch('src.services.classifier_service.genai.GenerativeModel')
     @patch('src.services.classifier_service.os.getenv')
-    def test_response_to_email_success(self, mock_getenv, mock_generative_model):
+    def test_response_to_productive_email_success(self, mock_getenv, mock_generative_model):
         mock_getenv.return_value = "FakeAPIKey"
         mock_model_instance = Mock()
         mock_model_instance.generate_content.return_value = Mock(text="Suggested response.")
@@ -34,6 +34,23 @@ class TestEmailClassifier(unittest.TestCase):
         result = response_to_email(test_data)
 
         self.assertEqual(result, {"message": "Suggested response."})
+
+        expected_prompt = get_response_prompt().format(email_to_response=test_data['email'],
+                                                       email_classification=test_data['classify'])
+        mock_model_instance.generate_content.assert_called_once_with(expected_prompt)
+
+    @patch('src.services.classifier_service.genai.GenerativeModel')
+    @patch('src.services.classifier_service.os.getenv')
+    def test_response_to_unproductive_email_success(self, mock_getenv, mock_generative_model):
+        mock_getenv.return_value = "FakeAPIKey"
+        mock_model_instance = Mock()
+        mock_model_instance.generate_content.return_value = Mock(text="Nenhuma resposta necessária.")
+        mock_generative_model.return_value = mock_model_instance
+
+        test_data = {'email': 'This is a test email.', 'classify': 'Unproductive'}
+        result = response_to_email(test_data)
+
+        self.assertEqual(result, {"message": "Nenhuma resposta necessária."})
 
         expected_prompt = get_response_prompt().format(email_to_response=test_data['email'],
                                                        email_classification=test_data['classify'])
